@@ -1,0 +1,360 @@
+<html>
+<head>
+    <title>Wildfires &amp; Climate Change</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="img/favicon.ico">
+    <!--free favicon from http://www.freefavicon.com/freefavicons/objects/iconinfo/fire-152-211413.html-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding 0;
+        }
+        #container {
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 450px;
+        }
+        #content {
+            padding: 20px 25px;
+            background: rgba(242, 242, 242, 0.85);
+            border-radius: 16px;
+        }
+        #slider {
+            font-family: 'Neuton', serif;
+            font-size: 22px;
+            text-align: center;
+            color: #a93e33;
+        }
+        #yearUpdate {
+            font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 23px;
+            text-align: center;
+            color: #1a1a1a;
+            margin: 0px 0 5px 0;
+        }
+        span {
+            color: #a93e33;
+        }
+        p {
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            margin-bottom: 0px;
+        }
+        #textUpdate {
+            font-size: 16px;
+            line-height: 2em;
+        }
+        sup {
+            /*removes superscript affect on line-height*/
+            vertical-align: baseline;
+            position: relative;
+            top: -0.4em;
+        }
+        #button {
+            margin: 20px auto;
+            text-align: center; 
+        }
+        #yearButton{
+            font-family: 'Roboto', sans-serif;
+/*            background: #a93e33;*/
+            border: 2px #a93e33 solid;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 7px;
+            text-align: center;
+            transition: 0.7s ease;
+        }
+        #yearButton:hover {
+            border: none;
+            background: #79261c;
+            color: #fff;
+            text-decoration: none;
+            border: 2px #79261c solid;
+        }
+        #refreshButton {
+            color: #a93e33;
+        }
+        #refreshButton:hover {
+            color: #79261c;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="button"> 
+                <a id="yearButton" href="#" onclick="incrementTime();">Proceed 5 Years &#9203; <!-- hourglass unicode symbol --> </a>
+            </div>
+            <br>
+            <p id="yearUpdate">Wildfires in the year <span id="year">1995</span>.</p>
+            <div id="textUpdate"></div>
+        </div>
+    </div>
+    <script src="js/three.min.js"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/ColladaLoader.js"></script>
+    <script src="js/tween.min.js"></script>
+    <script>
+        var currentYear = "1995";
+        var year = document.getElementById("year");
+        var textUpdate = document.getElementById("textUpdate");
+        var button = document.getElementById("button");
+        var mapLeftBoundx = -200;
+        var mapRightBoundx = 200;
+        var upperLimit = 75;
+        
+        //Object to hold all data needed to update the scene and text based on year
+        var years = {
+            "1995": {
+                text: "<p>Wildfires are a natural part of the ecosystem and relatively harmless to the earth when CO<sup>2</sup> levels are normal and the environment is healthy.</p>", 
+                incrementFunction: time1ToTime2,
+                fogValues: {color:0x3c1415, intensity: 0},
+                zFirePositions: {z1:100, z2:-50},
+            },
+            "2000": {
+                text: "<p>As CO<sup>2</sup> levels rise, wildfires become more frequent, larger, and more dangerous.</p>", 
+                incrementFunction: time2ToTime3,
+                fogValues: {color:0x3c1415, intensity: 0.001},
+                zFirePositions: {z1:300, z2:-50},
+                
+            },
+            "2005": {
+                text: "<p>Wildfires then become harder to fight and contain, leading to environmental damage. Wildfires are spreading across larger areas of land.</p>", 
+                incrementFunction: time3ToTime4,
+                fogValues: {color:0x3c1415, intensity: 0.002},
+                zFirePositions: {z1:340, z2:-50},
+                
+            },
+            "2010": {
+                text: "<p>Wildfires are spreading into residential areas, uprooting families and destroying homes and impacting habitats and ecosystems.</p>", 
+                incrementFunction: time4ToTime5,
+                fogValues: {color:0x3c1415, intensity: 0.003},
+                zFirePositions: {z1:525, z2:-300},
+            },
+            "2015": {
+                text: "<p>High CO<sup>2</sup> levels cause hotter temperatures and drier environmental conditions. This has started causing wildfires in ecosystems where wildfires have never been observed before in human history, like the Arctic Tundra.</p>", 
+                incrementFunction: time5ToTime6,
+                fogValues: {color:0x3c1415, intensity: 0.006},
+                zFirePositions: {z1:500, z2:-400},
+            },
+            "2020": {
+                text: "<p>Unless we fight to lower CO<sup>2</sup> levels, wildfires will continue to increase in frequency and power. Areas of the world become uninhabitable, ashen wastelands with toxic air. <a id='refreshButton' href='javascript:history.go(0)'> See This Again</a></p>", 
+                incrementFunction: null,
+                fogValues: {color:0x3c1415, intensity: 0.01},
+                zFirePositions: {z1:500, z2:-400},
+            },
+        }
+
+        // Increment Functions
+        function time0ToTime1() { // This is the initialized camera movement
+            textUpdate.innerHTML = years["1995"].text;
+            var pos1 = new TWEEN.Tween(camera.position).to({
+                z: -20
+            }, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+            
+            var pos2 = new TWEEN.Tween(camera.position).to({
+                y: 50
+            }, 1500).easing(TWEEN.Easing.Quadratic.InOut);
+            var rot1 = new TWEEN.Tween(camera.rotation).to({
+                x: -0.7
+            }, 2000).easing(TWEEN.Easing.Quadratic.InOut);
+            pos2.chain(pos1, rot1)
+            //pos2.chain(rot1);
+            //pos2.start();
+            pos2.start();
+        }
+        function time1ToTime2() { //1995 to 2000 animation
+            var pos1 = new TWEEN.Tween(camera.position).to({
+                y: 100
+            }, 2000).easing(TWEEN.Easing.Quadratic.InOut);
+            pos1.start();
+        }
+        function time2ToTime3() { //2000 to 2005 animation
+            var pos1 = new TWEEN.Tween(camera.position).to({ z: 150 }, 2500).easing(TWEEN.Easing.Quadratic.InOut);
+            pos1.start();            
+        }
+        function time3ToTime4() { //2005 to 2010 animation
+            particleSystem.position.z = 0
+            var pos1 = new TWEEN.Tween(camera.position).to({ z: -10 }, 1250).easing(TWEEN.Easing.Quadratic.InOut);
+            var rot1 = new TWEEN.Tween(camera.rotation).to({
+                y: 3.15 //rotate 180 degrees and a smidge to show houses center
+            }, 1750).easing(TWEEN.Easing.Quadratic.InOut);
+            var rot2 = new TWEEN.Tween(camera.rotation).to({
+                x: 0.3
+            }, 1750).easing(TWEEN.Easing.Quadratic.InOut);
+            pos1.chain(rot1, rot2)
+            pos1.start();
+        }
+        function time4ToTime5() { //2010 to 2015 animation
+            var rot1 = new TWEEN.Tween(camera.rotation).to({
+                y: 0 //return rotate 180 degrees
+            }, 2000).easing(TWEEN.Easing.Quadratic.InOut);
+            var pos1 = new TWEEN.Tween(camera.position).to({ z: -185 }, 1500).easing(TWEEN.Easing.Quadratic.InOut);
+            var rot2 = new TWEEN.Tween(camera.rotation).to({
+                x: 0
+            }, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+            pos1.chain(rot1, rot2)
+            pos1.start();
+            
+        }
+        function time5ToTime6() { //2015 to 2020 animation
+            upperLimit += 100;
+            var pos = new TWEEN.Tween(camera.position).to({
+                z:325
+            }, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+            pos.start();
+            button.innerHTML = '<a id="yearButton" href="http://www.350.org" target="_blank" id="button">Learn More About Climate Change at 350.org</a>'; //changes button link to Call to Action            
+        }
+        
+        function drawFireInRectangle(z1, z2){ //changes area of particleSystem
+            var pCount = particleCount;
+            while (pCount--) {
+                var particle = particles.vertices[pCount];
+                particle.z = z1 - (Math.random() * (Math.abs(z1) + Math.abs(z2))); //calculate particle position between z1 as minimum z.position and z2 as maximum z.position
+            }
+            particles.verticesNeedUpdate = true;
+        }
+
+        function incrementTime() { //updates year, camera, fog, html text and fire based on year
+            years[currentYear].incrementFunction();
+            currentYear = (parseInt(currentYear) + 5) + ""; //changes the year on button click
+            scene.fog = new THREE.FogExp2(years[parseInt(currentYear)].fogValues.color,                                                     years[parseInt(currentYear)].fogValues.intensity); //change fog color and intensity
+            
+            drawFireInRectangle(years[parseInt(currentYear)].zFirePositions.z1,
+                               years[parseInt(currentYear)].zFirePositions.z2);
+            
+            textUpdate.innerHTML = years[currentYear].text;
+            year.innerHTML = currentYear;
+
+        }
+        
+        //to make scene
+        var scene, camera, renderer, particleCount, particles, pMaterial, particle, particleSystem, object, forest = [];
+        var textureLoader = new THREE.TextureLoader();
+
+        function init() {
+            //add detector to see if WebGL is supported
+            if (!Detector.webgl) Detector.addGetWebGLMessage();
+            //set up a scene
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0xabad96, 0.0);
+            //add a camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            //render the scene - start renderer and set size
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0xd3d3d3, 0.25);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            //add to webpage
+            document.body.appendChild(renderer.domElement);
+            playing = false;
+            var light = new THREE.SpotLight(0xcccccc, 1, 0, Math.PI, 1);
+            light.position.set(20, 200, 50);
+            light.target.position.set(0, 0, 0);
+            scene.add(light);
+            //PARTICLES to represent fire
+            particleCount = 2500;
+            particles = new THREE.Geometry();
+            pMaterial = new THREE.PointsMaterial({
+                color: 0xFFFFFF
+                , size: 30
+                , map: textureLoader.load("img/fire.png")
+                , alphaTest: 0.6
+                , opacity: 0.9
+                , blending: THREE.AdditiveBlending
+                , transparent: true
+            });
+            //make individual particles
+            for (var p = 0; p < particleCount; p++) {
+                //create particle with random position values, -250 -> 250
+                var pX = Math.random() * 400 - 200
+                    , pY = Math.random() * 50 - 50
+                    , pZ = 100 - (Math.random() * (Math.abs(100) + Math.abs(-100)));
+                particle = new THREE.Vector3(pX, pY, pZ);
+                //create velocity vector
+                particle.velocity = new THREE.Vector3(0, // x
+                    (Math.random() * 0.9), // y
+                    0); // z
+                // add particles to geometry
+                particles.vertices.push(particle);
+            }
+            //make particle system
+            particleSystem = new THREE.Points(particles, pMaterial);
+            particleSystem.sortParticles = true;
+            //add to scene
+            particleSystem.position.z = -250;
+            scene.add(particleSystem);
+            //load dae scene
+            var loader = new THREE.ColladaLoader();
+            loader.options.convertUpAxis = true;
+            loader.load('scene.dae', function (collada) {
+                var dae = collada.scene;
+                dae.traverse(function (child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+                dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
+                dae.updateMatrix();
+                scene.add(dae);
+                light = scene.getObjectByName("Light", true);
+                light = light.children[0];
+                light.castShadow = true;
+                light.distance = 1000;
+                light.penumbra = 1;
+                light.decay = 2;
+                light.shadow.camera.fov = 30;
+                light.shadow.mapSize.width = 1024;
+                light.shadow.mapSize.height = 1024;
+                light.shadow.camera.near = 500;
+                light.shadow.camera.far = 2000;
+                //render the scene
+                render();
+            });
+            //position camera
+            camera.position.set(0, 30, 290);
+            //render the scene
+        }
+
+        function render() {
+            //call to render scene 60fps
+            requestAnimationFrame(render);
+            //update the fire particle position and velocity
+            var pCount = particleCount;
+            while (pCount--) {
+                // get the particle
+                var particle = particles.vertices[pCount];
+                // check if we need to reset
+                if (particle.y > upperLimit) {
+                    particle.y = -100;
+                    particle.velocity.y = Math.random() * 0.6;
+                }
+                // update the velocity
+                particle.velocity.y += Math.random() * .01;
+                // and the position
+                particle.add(particle.velocity);
+            }
+            particles.verticesNeedUpdate = true;
+            //keep displaying scene
+            renderer.render(scene, camera);
+            TWEEN.update();
+        }
+        //call init function to run code
+        init();
+        time0ToTime1();
+    </script>
+</body>
+
+</html>
