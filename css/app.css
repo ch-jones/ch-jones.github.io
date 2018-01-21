@@ -1,0 +1,216 @@
+.container {
+    position: relative;
+    margin-bottom: 32px;
+/*  width: 50%;*/
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+/*  font-size: 20px;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+/*  text-align: center;*/
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+}
+i {
+    margin-right: 16px;
+}
+.title-bar {
+/*        background-color: #ffd700;*/
+    background-color: #ebaf3b;
+    color: #11111f;
+    letter-spacing: 1px;
+}
+.socialMedia {
+    font-size: 30px;
+    float: right;
+}
+.socialMedia a {
+    color: #11111f;
+    transition: color 0.5s ease;
+}
+.socialMedia i {
+    margin-right: 0;
+}
+
+#my-info {
+    /*    background-color: #fee065;*/
+/*    background-color: #efc275;*/
+    background-color: #ebaf3b;
+    padding: 24px;
+    width: 250px;
+}
+#my-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0px 0 4px 0;
+/*    color: #068894;*/
+    color: #2b2b2b;
+}
+
+#headshot {
+    display: block;
+    width: 70%;
+   -webkit-filter: sepia(40%);
+    filter: sepia(40%); 
+    border-radius: 100%;
+    margin: 20px 0;
+}
+
+.sideMenu {
+    margin: 24px 0;
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.sideMenu a {
+    color: #11111f;
+    transition: color 0.5s ease;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+/* Sticky menu settings */
+#sticky-boundary {
+/*    background: cyan;*/
+}
+
+.sticky-container {
+    height: 38px;
+    /* prevents jumping on load */
+}
+
+.sticky {
+    width: 100%;
+/*        background: rgb(255, 142, 142);*/
+    margin: 0;
+}
+
+/* Portfolio */
+#wildfires {
+    background-color: #f2f2f2;
+    padding: 3%;
+}
+#dodecahedron {
+    background-color: #068894;
+    padding: 3%;
+}
+#poster {
+    background-color: #00AC65;
+    padding: 3%;
+}
+#datavis {
+    background-color: #E64C3C;
+    padding: 3%;
+}
+
+#dodecahedron {
+/*    background-color: #00AC65;*/
+}
+.portfolioSection {
+/*    padding: 50px;*/
+}
+.portfolioSection h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+
+/* Resume */
+
+.resumeSection {
+    margin: 16px 0;
+}
+
+.resumeSection h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.resumeSection h2 {
+    font-weight: 700;
+/*    text-transform: uppercase;*/
+    letter-spacing: 1px;
+}
+
+.resumeSection h3 {
+    font-weight: 400;
+/*    letter-spacing: 1px;*/
+}
+
+#skills tbody,
+#skills tr,
+#skills td {
+    border: none;
+}
+
+/* skills meter */
+
+.meter {
+    float: left;
+    clear: left;
+    height: 12px;
+    width: 200px;
+    /*    position: relative;*/
+    background: #ececec;
+    /*    border-radius: 4px;*/
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+    margin-bottom: 10px;
+}
+
+.meter > span {
+    display: block;
+    height: 100%;
+    /*
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+*/
+    background-color: #ebaf3b;
+    /*
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+*/
+    /*    position: relative;*/
+    overflow: hidden;
+}

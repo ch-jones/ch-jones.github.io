@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caleb Jones | UX Design &amp; Front-End Development</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
+</head>
+
+<body>
+    <div id="sticky-boundary">
+        <div class="off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+                <!-- Side Menu -->
+                <div class="off-canvas position-left" id="my-info" data-off-canvas data-position="left">
+                    <div class="grid-x grid-margin-x">
+                        <ul class="vertical menu sideMenu">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="resume.html">RESUME</a></li>
+                            <li><a href="contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell">
+<!--                            <img src="img/headshot.jpg" alt="photo of Caleb Jones" id="headshot">-->
+                            <h1>Caleb Jones</h1>
+                            <p>Vivacious designer and front-end developer. 3<sup>rd</sup> year Honours Bachelor of Interaction Design student at Sheridan College with exceptional critical thinking and project management skills used to successfully and timely deliver projects. Capable autodidact with four years experience with front-end programming languages, and lengthy experience in audio recording and production.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Title Bar -->
+                <div class="off-canvas-content sticky-container" data-off-canvas-content data-sticky-container>
+                    <div class="title-bar sticky" id="sticky-menu" data-sticky data-anchor="sticky-boundary" data-margin-top="0" data-margin-bottom="0">
+                        <div class="title-bar-left">
+                            <button class="menu-icon" type="button" data-open="my-info"></button>
+                            <span class="title-bar-title">Caleb Jones &#8226; UX Design &amp; Front-End Developer</span>
+                        </div>
+                        <div class="title-bar-right text-right">
+                            <ul class="menu socialMedia">
+                                <li><a href="https://twitter.com/qrnrd" target="_blank"><i class="fi-social-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/caleb-jones-86310a14a/" target="_blank"><i class="fi-social-linkedin"></i></a></li>
+                                <li><a href="https://github.com/ch-jones" target="_blank"><i class="fi-social-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <!-- Content -->
+        <div class="grid-container">
+            <div class="auto cell">
+                <h1>Contact</h1>
+            </div>
+            <div class="grid-x grid-margin-x grid-padding-x">
+                <div class="large-6 cell">
+                    <!-- Form -->
+                    <form method="post" action="contact.php" id="contactForm" data-abide novalidate>
+                        <div data-abide-error class="alert callout" style="display: none;">
+                            <p><i class="fi-alert"></i>Please fill out all the required fields.</p>
+                        </div>
+                        <div class="grid-x grid-margin-x">
+                            <div class="small-6 cell">
+                                <label>Name</label>
+                                <input name="name" placeholder="Name" type="text" aria-describedby="Name field" required pattern="text">
+                            </div>
+                            <div class="small-6 cell">
+                                <label>Email</label>
+                                <input name="email" type="email" placeholder="Email" aria-describedby="Email field" required pattern="email">
+                            </div>
+                        </div>
+                        <div>
+                            <label>Subject</label>
+                            <input name="subject" type="text" placeholder="Message Subject" aria-describedby="Subject field">
+                        </div>
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Write your message here." aria-describedby="Message field" required rows="6"></textarea>
+                        <input id="submit" name="submit" type="submit" value="Submit" class="button">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End of sticky boundary -->
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
