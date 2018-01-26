@@ -10,109 +10,122 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 
 <body>
     <div id="sticky-boundary">
-        <div class="off-canvas-wrapper">
-            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-                <!-- Side Menu -->
-                <div class="off-canvas position-left" id="my-info" data-off-canvas data-position="left">
-                    <div class="grid-x grid-margin-x">
-                        <ul class="vertical menu sideMenu">
-                            <li><a href="index.html">HOME</a></li>
-                            <li><a href="resume.html">RESUME</a></li>
-                            <li><a href="contact.html">CONTACT</a></li>
-                        </ul>
-                    </div>
-                    <div class="grid-x grid-margin-x">
-                        <div class="cell">
-                            <!--                            <img src="img/headshot.jpg" alt="photo of Caleb Jones" id="headshot">-->
-                            <h1>Caleb Jones</h1>
-                            <p>Vivacious designer and front-end developer. 3<sup>rd</sup> year Honours Bachelor of Interaction Design student at Sheridan College with exceptional critical thinking and project management skills used to successfully and timely deliver projects. Capable autodidact with four years experience with front-end programming languages, and lengthy experience in audio recording and production.</p>
-                        </div>
 
-                    </div>
-                </div>
+        <!-- Title Bar -->
 
-                <!-- Title Bar -->
-                <div class="off-canvas-content sticky-container" data-off-canvas-content data-sticky-container>
-                    <div class="title-bar sticky" id="sticky-menu" data-sticky data-anchor="sticky-boundary" data-margin-top="0" data-margin-bottom="0">
-                        <div class="title-bar-left">
-                            <button class="menu-icon" type="button" data-open="my-info"></button>
-                            <a href="index.html"><span class="title-bar-title">Caleb Jones &#8226; UX Design &amp; Front-End Developer</span></a>
-                        </div>
-                        <div class="title-bar-right text-right">
-                            <ul class="menu socialMedia">
-                                <li><a href="https://twitter.com/qrnrd" target="_blank"><i class="fi-social-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/caleb-jones-86310a14a/" target="_blank"><i class="fi-social-linkedin"></i></a></li>
-                                <li><a href="https://github.com/ch-jones" target="_blank"><i class="fi-social-github"></i></a></li>
+        <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+        <div class="sticky-container" data-sticky-container>
+            <div class="top-bar sticky" id="example-menu" id="sticky-menu" data-sticky data-anchor="sticky-boundary" data-margin-top="0" data-margin-bottom="0">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li class="menu-text">Caleb Jones</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Projects</a>
+                            <ul class="menu vertical">
+                                <li><a href="wildfires.html">Wildfires</a></li>
+                                <li><a href="nesting-icosahedrons.html">Nesting Icosahedrons</a></li>
+                                <li><a href="interactive-poster.html">Interactive Poster</a></li>
+                                <li><a href="spotify-offline-redesign.html">Spotify Feature Redesign</a></li>
+                                <li><a href="online-shopping-motion-graphics.html">Online Shopping Motion Graphics</a></li>
+                                <li><a href="interactive-book-cover.html">Interactive Book Cover</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="resume.html">Resumé</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu socialMedia">
+                        <li class="h3"><a href="https://twitter.com/qrnrd" target="_blank"><i class="fi-social-twitter"></i></a></li>
+                        <li class="h3"><a href="https://www.linkedin.com/in/caleb-jones-86310a14a/" target="_blank"><i class="fi-social-linkedin"></i></a></li>
+                        <li class="h3"><a href="https://github.com/ch-jones" target="_blank"><i class="fi-social-github"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- Content -->
-
-        <div id="wildfires" class="grid-x grid-margin-x grid-padding-x portfolioSection">
+        <div class="grid-x grid-margin-x grid-padding-x section spacer">
+            <div class="auto cell">
+                <h1>Caleb Jones</h1>
+                <h2>UX Designer &amp; Front-End Developer</h2>
+            </div>
+        </div>
+        <div class="grid-x grid-margin-x grid-padding-x section spacer">
             <div class="large-6 cell">
-                <div class="container" data-aos="slide-up">
-                    <img src="img/wildfire_screenRecording_2.gif" class="image">
-                    <div class="overlay">
-                        <div class="text">
-                            <h1>Wildfires</h1>
-                            <h2 class="h4"><a href="wildfires/index.html" target="_blank"><i class="fi-link"></i>Visit Site</a></h2>
-                            <h2 class="h4"><i class="fi-calendar"></i>December 2016</h2>
-                            <h3 class="h6"><i class="fi-pencil"></i>HTML, CSS, JavaScript, Three.js, Adobe Photoshop, Cinema4d</h3>
-                            <p><a href="wildfires.html">Read More&hellip;</a></p>
+                <div class="animatedParent animateOnce">
+                    <div class="container animated fadeInUp">
+                        <img src="img/wildfire_screenRecording_2.gif" class="image">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>Wildfires</h1>
+                                <h2 class="h4"><a href="wildfires/index.html" target="_blank"><i class="fi-link"></i>Visit Site</a></h2>
+                                <h2 class="h5"><i class="fi-calendar"></i>December 2016</h2>
+                                <h3 class="h6"><i class="fi-pencil"></i>HTML, CSS, JavaScript, Three.js, Adobe Photoshop, Cinema4d</h3>
+                                <p><a href="wildfires.html">Read More&hellip;</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container" data-aos="slide-up">
-                    <img src="img/waterCrisis_poster.png" class="image">
-                    <div class="overlay">
-                        <div class="text">
-                            <h1>Water Crisis Interactive Poster</h1>
-                            <h2 class="h4"><i class="fi-calendar"></i>April 2017</h2>
-                            <h3 class="h6"><i class="fi-pencil"></i>Arduino, Physical Computing, 3D Design, Fabrication, Code, Adobe Illustrator</h3>
+                <div class="animatedParent animateOnce" data-appear-top-offset='-100'>
+                    <div class="container animated fadeInUp">
+                        <img src="img/waterCrisis_poster.png" class="image">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>Water Crisis Interactive Poster</h1>
+                                <h2 class="h4"><i class="fi-calendar"></i>April 2017</h2>
+                                <h3 class="h6"><i class="fi-pencil"></i>Arduino, Physical Computing, 3D Design, Fabrication, Code, Adobe Illustrator</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container" data-aos="slide-up">
-                    <img src="img/phoneGif.gif" class="image">
-                    <div class="overlay">
-                        <div class="text">
-                            <h1>Online Shopping Motion Graphics</h1>
-                            <h2 class="h4"><i class="fi-calendar"></i>October 2017</h2>
-                            <h3 class="h6"><i class="fi-pencil"></i>Research, Adobe Illustrator, Adobe After Effects</h3>
-                            <p><a href="online-shopping-motion-graphics.html">Read More&hellip;</a></p>
+                <div class="animatedParent animateOnce" data-appear-top-offset='-100'>
+                    <div class="container animated fadeInUp">
+                        <img src="img/phoneGif.gif" class="image">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>Online Shopping Motion Graphics</h1>
+                                <h2 class="h4"><i class="fi-calendar"></i>October 2017</h2>
+                                <h3 class="h6"><i class="fi-pencil"></i>Research, Adobe Illustrator, Adobe After Effects</h3>
+                                <p><a href="online-shopping-motion-graphics.html">Read More&hellip;</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="large-6 cell">
-                <div class="container" data-aos="slide-up">
-                    <img src="img/nestingDodecahedrons_square.gif" alt="Nesting dodecahedron project" class="image">
-                    <div class="overlay">
-                        <div class="text">
-                            <h1>Nesting Dodecahedrons</h1>
-                            <h2 class="h4"><i class="fi-calendar"></i>April 2017</h2>
-                            <h3 class="h6"><i class="fi-pencil"></i>Arduino, Physical Computing, 3D Design, Fabrication, Iterative Design, Code</h3>
-                            <p><a href="#">Read More&hellip;</a></p>
+                <div class="animatedParent animateOnce">
+                    <div class="container animated fadeInUp">
+                        <img src="img/nestingIcosahedrons_square.gif" alt="Nesting Icosahedrons project" class="image">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>Nesting Icosahedrons</h1>
+                                <h2 class="h4"><i class="fi-calendar"></i>April 2017</h2>
+                                <h3 class="h6"><i class="fi-pencil"></i>Arduino, Physical Computing, 3D Design, Fabrication, Iterative Design, Code</h3>
+                                <p><a href="#">Read More&hellip;</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container" data-aos="slide-up">
-                    <img src="img/waterCrisis_dataVisualization.png" alt="First Nations water crisis data visualization" class="image">
-                    <div class="overlay">
-                        <div class="text">
-                            <h1>Water Crisis Data Visualization</h1>
-                            <h2 class="h4"><i class="fi-calendar"></i>January 2018</h2>
-                            <h3 class="h6"><i class="fi-pencil"></i>Research, Excel, Adobe Illustrator</h3>
-                            <p><a href="#">Read More&hellip;</a></p>
+                <div class="animatedParent animateOnce" data-appear-top-offset='-100'>
+                    <div class="container animated fadeInUp">
+                        <img src="img/waterCrisis_dataVisualization.png" alt="First Nations water crisis data visualization" class="image">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>Spotify Feature Redesign</h1>
+                                <h2 class="h4"><i class="fi-calendar"></i>December 2016</h2>
+                                <h3 class="h6"><i class="fi-pencil"></i>User Research &amp; Analysis, Personas, Wireframes, Adobe Illustrator</h3>
+                                <p><a href="spotify-offline-redesign.html">Read More&hellip;</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,17 +134,16 @@
 
         <!-- End of sticky boundary -->
     </div>
+    <div class="grid-x grid--padding-x text-center">
+        <div class="auto cell">
+            <footer>&copy Caleb Jones 2018</footer>
+        </div>
+    </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1200,
-        });
-
-    </script>
+    <script src="js/css3-animate-it.js"></script>
 </body>
 
 </html>

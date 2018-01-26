@@ -1,0 +1,104 @@
+/*background-color: #785689;*/
+.padded {
+    padding: 60px 0;
+}
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed; /* photo licensed under Creative Commons Zero (CC0) */
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+/*    font-family: 'Open Sans', sans-serif;*/
+}
+.white {
+    background-color: #fff;
+}
+.spacer {
+    padding: 200px 0;
+}
+.lines {
+    background: url(../img/x.png) repeat;
+}
+.quoted {
+    color: #fff;
+    text-align: center;
+    font-size: 2.8ems;
+    font-style: italic;
+}
+h1, h2, h3 {
+    font-family: 'Libre Franklin', sans-serif;
+}
+h1 {
+    color: #333;
+    font-weight: 800;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: -10px;
+}
+h2 {
+    color: #664E2A;
+    font-weight: 600;
+}
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+a {
+    color: #3fa9f5;
+}
+a:hover{
+    text-decoration: underline;
+}
+#header {
+    top: -25%;
+    transform: translateY(-25%);
+}
+#titleCTA {
+    text-align: center;
+    color: #2E7DB5;
+}
+#fbLike {
+/*    margin: 30px 0;*/
+    background-color: #3fa9f5;
+}
+#fbLike:hover {
+/*    background-color: #2e7db5;*/
+    background-color: #B28037;
+    color: #333;
+}
+.hashtag {
+    text-align: center;
+    margin: 15px 0;
+    color: #3FA9F5;
+}
+#conclusion {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    margin: 100px auto;
+}
+#CTA {
+    margin: 80px 0 30px 0;
+}
+#footer {
+    color: #fff;
+}
+#logo {
+    float: left;
+    height: 160px;
+    width: 160px;
+    margin: 5px 20px 20px 0;
+    border-radius: 100%;
+}
+#impact {
+    margin: 0 auto;
+    padding: 0 0 60px 0;
+}
+cite {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #3fa9f5;
+}
+button.radius, .button.radius {
+    border-radius: 3px; }
+  button.round, .button.round {
+    border-radius: 1000px; }

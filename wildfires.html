@@ -10,52 +10,49 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 
 <body>
     <div id="sticky-boundary">
-        <div class="off-canvas-wrapper">
-            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-                <!-- Side Menu -->
-                <div class="off-canvas position-left" id="my-info" data-off-canvas data-position="left">
-                    <div class="grid-x grid-margin-x">
-                        <ul class="vertical menu sideMenu">
-                            <li><a href="index.html">HOME</a></li>
-                            <li><a href="resume.html">RESUME</a></li>
-                            <li><a href="contact.html">CONTACT</a></li>
-                        </ul>
-                    </div>
-                    <div class="grid-x grid-margin-x">
-                        <div class="cell">
-                            <!--                            <img src="img/headshot.jpg" alt="photo of Caleb Jones" id="headshot">-->
-                            <h1>Caleb Jones</h1>
-                            <p>Vivacious designer and front-end developer. 3<sup>rd</sup> year Honours Bachelor of Interaction Design student at Sheridan College with exceptional critical thinking and project management skills used to successfully and timely deliver projects. Capable autodidact with four years experience with front-end programming languages, and lengthy experience in audio recording and production.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Title Bar -->
-                <div class="off-canvas-content sticky-container" data-off-canvas-content data-sticky-container>
-                    <div class="title-bar sticky" id="sticky-menu" data-sticky data-anchor="sticky-boundary" data-margin-top="0" data-margin-bottom="0">
-                        <div class="title-bar-left">
-                            <button class="menu-icon" type="button" data-open="my-info"></button>
-                            <a href="index.html"><span class="title-bar-title">Caleb Jones &#8226; UX Design &amp; Front-End Developer</span></a>
-                        </div>
-                        <div class="title-bar-right text-right">
-                            <ul class="menu socialMedia">
-                                <li><a href="https://twitter.com/qrnrd" target="_blank"><i class="fi-social-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/caleb-jones-86310a14a/" target="_blank"><i class="fi-social-linkedin"></i></a></li>
-                                <li><a href="https://github.com/ch-jones" target="_blank"><i class="fi-social-github"></i></a></li>
+        <!-- Title Bar -->
+        <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+        <div class="sticky-container" data-sticky-container>
+            <div class="top-bar sticky" id="example-menu" id="sticky-menu" data-sticky data-anchor="sticky-boundary" data-margin-top="0" data-margin-bottom="0">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li class="menu-text">Caleb Jones</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Projects</a>
+                            <ul class="menu vertical">
+                                <li><a href="wildfires.html">Wildfires</a></li>
+                                <li><a href="nesting-icosahedrons.html">Nesting Icosahedrons</a></li>
+                                <li><a href="interactive-poster.html">Interactive Poster</a></li>
+                                <li><a href="spotify-offline-redesign.html">Spotify Feature Redesign</a></li>
+                                <li><a href="online-shopping-motion-graphics.html">Online Shopping Motion Graphics</a></li>
+                                <li><a href="interactive-book-cover.html">Interactive Book Cover</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="resume.html">Resumé</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu socialMedia">
+                        <li><a href="https://twitter.com/qrnrd" target="_blank"><i class="fi-social-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/caleb-jones-86310a14a/" target="_blank"><i class="fi-social-linkedin"></i></a></li>
+                        <li><a href="https://github.com/ch-jones" target="_blank"><i class="fi-social-github"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- Content -->
-        <div id="wildfires" class="grid-x grid-margin-x grid-padding-x portfolioSection">
+        <div class="grid-x grid-margin-x grid-padding-x section spacer">
             <div class="cell">
                 <h1>Wildfires</h1>
                 <h2 class="h4"><a href="wildfires/index.html" target="_blank"><i class="fi-link"></i>Visit Site</a></h2>
@@ -88,8 +85,8 @@
                 <img src="http://via.placeholder.com/450x450">
             </div>
         </div>
-        
-        <div id="wildfires" class="grid-x grid-margin-x grid-padding-x portfolioSection">
+
+        <div class="grid-x grid-margin-x grid-padding-x section spacer">
             <div class="auto cell">
                 <h2><i class="fi-monitor"></i>Wireframes</h2>
                 <p>The initial concept for the interactive site was a slider so that users could slide between and see the difference between years. However, this narrative didn’t communicate the irreversible nature of climate change. To better communicate the permanent changes resulting from climate change, the UI was changed from a slider to a button, as it would move the timeline forward in fixed increments, and unable to go backward.</p>
