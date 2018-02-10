@@ -14,6 +14,7 @@
     }
 }
 
+/* Index Overlay */
 .container {
     position: relative;
     margin-bottom: 32px;
@@ -58,6 +59,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
+    background-color: #f2f2f2;
 }
 
 h1,
@@ -73,8 +75,8 @@ i {
     margin-right: 16px;
 }
 
-.title-bar,
-.top-bar {
+/* Nav Bar */
+.title-bar, .top-bar {
     /*        background-color: #ffd700;*/
     background-color: #ebaf3b;
     color: #11111f;
@@ -83,6 +85,7 @@ i {
 
 .top-bar ul {
     background-color: #ebaf3b;
+    color: #2b2b2b;
 }
 
 .socialMedia a {
@@ -93,20 +96,29 @@ i {
 .socialMedia i {
     margin-right: 0;
 }
-.menu a:hover {
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-top-color: #2b2b2b;
+}
+.menu a, .dropdown a, .submenu {
+    color: #2b2b2b;
+    transition: color 0.5s ease;
+}
+.menu a:hover, .dropdown.menu .is-active > a {
     color: #fff;
+/*
+    border-bottom: 3px solid #fff;
+    text-decoration: none;
+*/
+/*    border-width: 0;*/
 }
 
 #headshot {
     display: block;
-/*    width: 70%;*/
+    /*    width: 70%;*/
     -webkit-filter: sepia(40%);
     filter: sepia(40%);
     border-radius: 100%;
 }
-
-
-
 
 /* Sticky menu settings */
 #sticky-boundary {
@@ -124,16 +136,37 @@ i {
     margin: 0;
 }
 
-footer {
-    padding-bottom: 3%;
-    background-color: #f2f2f2;
+.center {
+    
+/*    width: 50%;*/
 }
 
+footer {
+/*    position: relative;*/
+    padding: 2%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+/*    background-color: #2b2b2b;*/
+/*    color: #f2f2f2;*/
+    text-align: center;
+}
+img {
+    padding: 10px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.spacer {
+    margin: 30px 0;
+}
+.orbit-previous, .orbit-next {
+    color: #2b2b2b;
+}
 /* Portfolio */
-
 .section {
-    background-color: #f2f2f2;
-    padding: 3%;
+/*    background-color: #f2f2f2;*/
+    padding: 3% 3% 3% 3%;
 }
 
 .section h1 {
@@ -142,18 +175,43 @@ footer {
     letter-spacing: 6px;
 }
 
-
-/* Resume */
-
-.resumeSection h1 {
+.heading {
+    padding: 3% 3% 0 3%;
+}
+.heading h1 {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 6px;
 }
 
+/* Resume */
+.resumeHeader {
+    text-align: center;
+    padding-top: 3%;
+    margin-bottom: 20px;
+}
+.resumeHeader h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+}
+.resumeHeader h2{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.resumeSection {
+    padding: 3% 3% 0 3%;
+}
+.resumeSection h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
 .resumeSection h2 {
     font-weight: 700;
-    /*    text-transform: uppercase;*/
     letter-spacing: 1px;
 }
 
@@ -162,40 +220,67 @@ footer {
     /*    letter-spacing: 1px;*/
 }
 
+.resumePoint {
+    margin-bottom: 20px;
+}
+
 #skills tbody,
 #skills tr,
 #skills td {
     border: none;
+    background-color: transparent;
+    vertical-align: middle;
 }
 
 /* skills meter */
 
 .meter {
-    float: left;
-    clear: left;
-    height: 12px;
+    height: 14px;
     width: 200px;
-    /*    position: relative;*/
-    background: #ececec;
+    background: #dddddd;
     /*    border-radius: 4px;*/
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
-    margin-bottom: 10px;
 }
 
 .meter > span {
     display: block;
     height: 100%;
-    /*
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-*/
     background-color: #ebaf3b;
-    /*
-    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-*/
-    /*    position: relative;*/
     overflow: hidden;
 }
+
+.animate > span:after {
+    display: none;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.meter > span:after,
+.animate > span > span {
+    animation: move 2s linear infinite;
+}
+#spotify-scenarios {
+    margin: 30px 0 0 0;
+}
+#spotify-scenarios tbody, #spotify-scenarios thead, #spotify-scenarios th, #spotify-scenarios tr, #spotify-scenarios td {
+    border: none;
+/*    background-color: rgba(255, 255, 255, 0.3);*/
+    vertical-align: middle;
+}
+#spotify-scenarios td {
+    padding: 20px;
+}
+.top-align {
+    vertical-align: top;
+}
+@media screen and (max-width: 63.9375em) {
+  table.stack thead {
+    display: block;
+    }
