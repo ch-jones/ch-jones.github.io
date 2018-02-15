@@ -26,7 +26,11 @@
     width: 100%;
     height: auto;
 }
-
+.portfolioLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .overlay {
     position: absolute;
     top: 0;
@@ -54,6 +58,9 @@
     -ms-transform: translate(-50%, -50%);
     /*    width: 50%;*/
     /*  text-align: center;*/
+}
+.text h1 {
+    color: #ebaf3b;
 }
 
 body {
@@ -152,13 +159,14 @@ footer {
     text-align: center;
 }
 img, audio {
-    padding: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 .spacer {
-    margin: 30px 0;
+    margin: 40px 0;
 }
 .orbit-previous, .orbit-next {
     color: #2b2b2b;

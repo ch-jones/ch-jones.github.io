@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb Jones | UX Design &amp; Front-End Development</title>
+    <title>Caleb Jones | UX Design + Front-End Development</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
@@ -63,7 +63,7 @@
                 <h1>Interactive Poster</h1>
                 <h2 class="h4"><a href="firstnationswatercrisis/index.html" target="_blank"><i class="fi-link"></i>Visit Site</a></h2>
                 <h2 class="h4"><i class="fi-calendar"></i>April 2017</h2>
-                <h3 class="h5"><i class="fi-torsos"></i>Caleb Jones &amp; Adrianna Rodriguez</h3>
+                <h3 class="h5"><i class="fi-torsos"></i>Caleb Jones &amp; Adriana Rodriguez</h3>
                 <h3 class="h6"><i class="fi-pencil"></i>Research, 3D Design, 2D Design, Fabrication, Iterative Design, Code, Arduino, Physical Computing</h3>
 
                 <h3 class="h6"><i class="fi-torso"></i>Role: Research, Web Design &amp; Development, Physical Computing, Fabrication, Design Collaboration</h3>
@@ -74,7 +74,13 @@
                 </div>
             </div>
         </div>
-
+        <div class="grid-x grid-margin-x grid-padding-x section">
+            <div class="auto cell">
+                <div class="responsive-embed widescreen">
+                    <iframe src="https://player.vimeo.com/video/255827673" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
         <div class="grid-x grid-margin-x grid-padding-x section">
             <div class="auto cell">
                 <h2><i class="fi-clipboard-notes"></i>Topic Research</h2>
@@ -100,28 +106,31 @@
         <div class="grid-x grid-margin-x grid-padding-x section">
             <div class="auto cell">
                 <h2><i class="fi-photo"></i>Poster Development</h2>
-                <h3>Design</h3>
+                <h3><i class="fi-paint-bucket"></i>Design</h3>
                 <p>We initially wanted to include our original concepts throughout the poster, such as the visuals of unclean water and call out facts. However, with the addition of audio soundtracks and buttons, we found it difficult to include the element of buttons without moving the glass of water around, which unbalanced the design. Additonally, with the element of sound included, there wasn’t a need of long descriptions throughout the poster.</p>
                 <p>Each element&#8212;visuals, audio clips, and copy&#8212;was reflected on and analyzed fully so that users could understand the message. When considering the overall layout, we decided to include multiple raindrops that were large enough to be used as buttons. Since the pattern is repetitive, we took into consideration of colour to differentiate the raindrops which were also buttons. Additionally, with the execution of the layout, we provided additional text to encourage people to touch the raindrops. This overall element provides more clarity and an increasing chance of a user interacting with the poster.</p>
                 <div class="grid-x grid-margin-x spacer">
-                    <div class="large-4 medium-4 cell">
+                    <div class="large-3 medium-4 cell">
                         <img src="img/fnwc_tubPoster.jpg" alt="poster about the First Nations Water Crisis with an illustration of a tub filled with dirty water">
-                        <p>First solo poster design</p>
+                        <p class="text-center">First solo poster design</p>
                     </div>
-                    <div class="large-4 medium-4 cell">
+                    <div class="large-3 medium-4 cell">
                         <img src="img/fnwc_glassPoster.jpg" alt="poster about the First Nations Water Crisis with an illustration of a glass of dirty water">
-                        <p>Second solo poster design</p>
+                        <p class="text-center">Second solo poster design</p>
                     </div>
-
-                    <div class="large-4 medium-4 cell">
-                        <img src="img/waterCrisis_poster.png" alt="Design for the First Nations Water Crisis interactive poster">
-                        <p>Collaborative + Final Poster Design</p>
+                    <div class="large-3 cell">
+                        <img src="img/fnwc_glassDropletPoster.png" alt="poster about the First Nations Water Crisis with an illustration of a glass of dirty water and water droplets">
+                        <p class="text-center">Collaborative Iteration Design</p>
+                    </div>
+                    <div class="large-3 medium-4 cell">
+                        <img src="img/waterCrisis_poster.png" alt="Final design for the First Nations Water Crisis interactive poster">
+                        <p class="text-center">Collaborative + Final Poster Design</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="grid-x grid-margin-x grid-padding-x section">
-            <div class="auto cell">
+            <div class="cell">
                 <h3><i class="fi-music"></i>Audio Clips</h3>
                 <p>By incorporating audio clips into the poster, we want to provide audiences with first hand accounts and allow users to to fully analyze and understand the issues within the First Nation communities. There was careful consideration and care put into clip selection, as we were cognizant and sensitive to not speak over the First Nations people effected, especially as non-Native designers. This project was an opportunity to lift and give a platform to First Nations people, not speak over them.</p>
                 <div class="grid-x grid-margin-x spacer">
@@ -146,7 +155,33 @@
                 </div>
             </div>
         </div>
+        <div class="grid-x grid-margin-x grid-padding-x section">
+            <div class="auto cell">
+            <h3><i class="fi-wrench"></i>Fabrication</h3>
+                <p>To realize interactive elements of the poster, it needed to incorporate electronics and circuitry using:</p>
+                <ul>
+                    <li>an Arduino Uno</li>
+                    <li>Conductive Paint</li>
+                    <li>Capacitive Touch Sensor</li>
+                    <li>Speaker</li>
+                    <li>mp3 Audio shield</li>
+                </ul>
+                <p>The premise of the interactive elements is that 3 buttons were connected to an Arduino Uno with a capacitive touch sensor, audio shield, and speaker. The buttons trigger the capacitive touch sensor, which triggers the audio shield by playing the audio clips on a connected USB out of a speaker. This was all powered by a 9V battery.</p>
+                <p>To connect the circuitry with the poster, a template was created with the buttons cut out to act as a stencil. We then used the stencil to paint on the back of the poster with the conductive paint. The paint was sensitive enough that it could still trigger the capacitive touch sensor from the back of the poster. Wire was used to connect the painted buttons to the completed Arduino Uno circuit. The completed circuit was mounted in a box, which was installed on the back of the poster with cardboard supports. This both concealed and protected the circuits and its elements.</p>
+            </div>
+            <div class="large-4 cell">
+                <img src="img/fnwc_fabrication.png" alt="photos of fabrication stages">
+            </div>
+            <div class="large-4 cell">
+                <img src="img/fnwc_circuit.jpg" alt="photos of fabrication stages">
+            </div>
+        </div>
         <!-- End of sticky boundary -->
+    </div>
+    <div class="grid-x grid--padding-x text-center">
+        <div class="auto cell">
+            <footer>&copy; Caleb Jones 2018</footer>
+        </div>
     </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
